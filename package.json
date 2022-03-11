@@ -1,5 +1,5 @@
 {
-  "name": "api-local-db",
+  "name": "api-local-db-json",
   "version": "1.0.0",
   "description": "JSON API with implementing  Rest api",
   "main": "server.js",
@@ -15,6 +15,5 @@
   "bugs": {
     "url": "https://github.com/rangerisrael/json-api-local/issues"
   },
-  "homepage": "https://github.com/rangerisrael/json-api-local#readme",
-  "type": "module"
+  "homepage": "https://github.com/rangerisrael/json-api-local#readme"
 }

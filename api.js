@@ -2,8 +2,8 @@ import fs from 'fs';
 
 const db = './db.json';
 
-export const services = {
-  get: function (resolve, reject) {
+function services = {
+  module.exports.get: function (resolve, reject) {
     fs.readFile(db, (err, data) => {
       if (err) {
         reject(err);
@@ -11,7 +11,7 @@ export const services = {
       resolve(JSON.parse(data));
     });
   },
-  getByID: function (id, resolve, reject) {
+   module.exports.getByID: function (id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -21,7 +21,7 @@ export const services = {
       }
     });
   },
-  createServices: function (newData, resolve, reject) {
+  module.exports.createServices: function (newData, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -40,7 +40,7 @@ export const services = {
     });
   },
 
-  updateServices: function (updateData, id, resolve, reject) {
+  module.exports.updateServices: function (updateData, id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -57,7 +57,7 @@ export const services = {
       }
     });
   },
-  deleteEachServices: function (id, resolve, reject) {
+  module.exports.deleteEachServices: function (id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -75,7 +75,7 @@ export const services = {
       }
     });
   },
-  deleteAllServices: function (resolve, reject) {
+  module.exports.deleteAllServices: function (resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -93,7 +93,7 @@ export const services = {
       }
     });
   },
-  filterServicesByQuery: function (searchQuery, resolve, reject) {
+  module.exports.filterServicesByQuery: function (searchQuery, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -116,21 +116,6 @@ export const services = {
   },
 };
 
-const binarySearch = (arr, val) => {
-  let lower = 0;
-  let upper = arr.length - 1;
 
-  while (lower <= upper) {
-    let mid = lower + Math.floor((upper - lower) / 2);
 
-    if (arr[mid] === val) {
-      return arr[mid];
-    }
-    if (val < arr[mid]) {
-      upper = mid - 1;
-    } else {
-      lower = mid + 1;
-    }
-  }
-  return -1;
-};
+module.exports.services = services
