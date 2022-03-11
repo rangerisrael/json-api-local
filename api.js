@@ -1,9 +1,10 @@
-import fs from 'fs';
+let fs = require('fs');
+
 
 const db = './db.json';
 
 function services = {
-  module.exports.get: function (resolve, reject) {
+  get: function (resolve, reject) {
     fs.readFile(db, (err, data) => {
       if (err) {
         reject(err);
@@ -11,7 +12,7 @@ function services = {
       resolve(JSON.parse(data));
     });
   },
-   module.exports.getByID: function (id, resolve, reject) {
+  getByID: function (id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -21,7 +22,7 @@ function services = {
       }
     });
   },
-  module.exports.createServices: function (newData, resolve, reject) {
+ createServices: function (newData, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -40,7 +41,7 @@ function services = {
     });
   },
 
-  module.exports.updateServices: function (updateData, id, resolve, reject) {
+  updateServices: function (updateData, id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -57,7 +58,7 @@ function services = {
       }
     });
   },
-  module.exports.deleteEachServices: function (id, resolve, reject) {
+  deleteEachServices: function (id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -75,7 +76,7 @@ function services = {
       }
     });
   },
-  module.exports.deleteAllServices: function (resolve, reject) {
+  deleteAllServices: function (resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -93,7 +94,7 @@ function services = {
       }
     });
   },
-  module.exports.filterServicesByQuery: function (searchQuery, resolve, reject) {
+  filterServicesByQuery: function (searchQuery, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -118,4 +119,4 @@ function services = {
 
 
 
-module.exports.services = services
+module.exports = services;
