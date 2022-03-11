@@ -1,10 +1,7 @@
 let fs = require('fs');
 
-
-const db = './db.json';
-
-function services = {
-  get: function (resolve, reject) {
+module.exports = {
+  get: function (db, resolve, reject) {
     fs.readFile(db, (err, data) => {
       if (err) {
         reject(err);
@@ -12,7 +9,7 @@ function services = {
       resolve(JSON.parse(data));
     });
   },
-  getByID: function (id, resolve, reject) {
+  getByID: function (db, id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -22,7 +19,7 @@ function services = {
       }
     });
   },
- createServices: function (newData, resolve, reject) {
+  createServices: function (db, newData, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -41,7 +38,7 @@ function services = {
     });
   },
 
-  updateServices: function (updateData, id, resolve, reject) {
+  updateServices: function (db, updateData, id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -58,7 +55,7 @@ function services = {
       }
     });
   },
-  deleteEachServices: function (id, resolve, reject) {
+  deleteEachServices: function (db, id, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -76,7 +73,7 @@ function services = {
       }
     });
   },
-  deleteAllServices: function (resolve, reject) {
+  deleteAllServices: function (db, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -94,7 +91,7 @@ function services = {
       }
     });
   },
-  filterServicesByQuery: function (searchQuery, resolve, reject) {
+  filterServicesByQuery: function (db, searchQuery, resolve, reject) {
     fs.readFile(db, function (err, data) {
       if (err) {
         reject(err);
@@ -116,7 +113,3 @@ function services = {
     });
   },
 };
-
-
-
-module.exports = services;
