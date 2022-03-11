@@ -1,8 +1,8 @@
 {
-  "name": "api-local-db-json",
+  "name": "api-localdb-latest",
   "version": "1.0.1",
   "description": "JSON API with implementing  Rest api",
-  "main": "server.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
